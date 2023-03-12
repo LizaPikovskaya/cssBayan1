@@ -1,13 +1,11 @@
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Railway", sans-serif;
     color: black;
     background-color:#FFEBCD;
     letter-spacing: 0.02em;
    
   }
-  .list {
-    list-style: none;
-  }
+
   .link {
     text-decoration: none;
   }
@@ -17,6 +15,8 @@ body {
   }
   ul,
   ol {
+    list-style: none;
+
     margin: 0;
   
     padding-left: 0;
@@ -71,13 +71,23 @@ body {
 
   .main-title {
     text-align: center;
+    margin-top: 50px;
     margin-bottom: 50px;
   }
   .accordion {
-    margin: 0 auto; }
+    margin: 0 auto; 
+transition: all 250ms linear;}
 
+    .accordion:hover .accordion-title {
+        color: rgb(44, 14, 165);
+    }
+    .accordion:hover .cross-icon {
+        opacity: 1;
+        visibility: visible;
+        fill: rgb(44, 14, 165);
+    }
  .accordion-item {
-    max-width: 600px;
+    max-width: 100%;
   position: relative;
   border-top: 1px solid grey;
     /* border: 1px solid black; */
@@ -89,7 +99,7 @@ body {
     padding: 20px 15px;
         /* border: 1px solid grey; */
 color: black;
-font-weight: 500;
+font-weight: 700;
     cursor: pointer;
 /* background-color: rgb(178, 119, 119); */
     transition: color 300ms linear;
@@ -97,9 +107,22 @@ font-weight: 500;
  .accordion-title:hover {
    color: rgb(29, 92, 195) ;
  }
- .accordion-input:checked ~ .accordion-img {
+ 
+ /* .accordion-input:checked ~ .accordion-img {
     display: block;
  }
+ .accordion-input:checked ~ .cross-icon {
+    top:50%;
+    transform: translateY(-50%) rotate(45deg)
+ } */
+
+ .accordion-input:hover ~ .accordion-img {
+    display: block;
+}
+/* .accordion-title:hover  .cross-icon  {
+    transform: translateY(-50%) ;
+
+} */
  .accordion-input {
     -webkit-appearance: none;
     appearance: none;
@@ -111,18 +134,42 @@ display: none;
 }
 
 .cross-icon {
+opacity:0;
+visibility: hidden;
 position: absolute;
-top:50%;
-transform: translateY(-50%);
+top:30px;
+transform: translateY(-50%) rotate(45deg);
 right: 15px;
 transition: all 250ms linear;
 }
-.accordion-title:hover .cross-icon  {
+/* .accordion-title:hover .cross-icon  {
     top:50%;
 transform: translateY(-50%) rotate(45deg);
-}
+} */
 .img{
     margin: auto;
+    margin-bottom: 20px;
 }
+
+.accordion-input:checked ~ .accordion-img {
+    display: block;
+}
+.accordion-input:checked ~ .cross-icon {
+transform: translateY(-50%);
+}
+.accordion-input:checked + .accordion-title {
+color: black;    }
+
+.accordion-item ~ .accordion-img {
+    display: block;
+}
+.accordion-item:hover  .cross-icon {
+    transform: translateY(-50%);
+
+}
+/* .accordion-item:hover  .accordion-title {
+color:black
+} */
+
 
 
